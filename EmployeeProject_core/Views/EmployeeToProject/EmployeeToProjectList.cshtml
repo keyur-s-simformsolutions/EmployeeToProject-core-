@@ -1,0 +1,74 @@
+﻿@model IEnumerable<EmployeeProject_core.ViewModel.EmployeeToProjectViewModel>
+
+@{
+    ViewData["Title"] = "EmployeeToProjectList";
+}
+
+
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Assign Project</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JoiningDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JoiningDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<table cellpadding="0" cellspacing="0">
+    <tr>
+
+        @for (int i = 1; i <= @ViewBag.TotalPages; i++)
+        {
+
+            <td>
+                @if (i != @ViewBag.CurrPage)
+                {
+                    <a class="pages btn btn-default" href="javascript:Goto(@i);">@i</a>
+                }
+                else
+                {
+                    <span class="pages btn btn-primary">@i</span>
+                }
+            </td>
+        }
+    </tr>
+</table>
+<input type="hidden" id="curpageidx" name="cPage" />

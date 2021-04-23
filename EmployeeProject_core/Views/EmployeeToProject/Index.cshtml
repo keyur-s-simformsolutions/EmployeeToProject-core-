@@ -1,0 +1,58 @@
+﻿@using EmployeeProject_core.Controllers
+@model EmployeeProject_core.ViewModel.FilterSearch
+@{
+    ViewBag.Title = "header";
+}
+@*<div class="row ">
+        <div class="col">
+            <div class=" col-md-2">
+                <a href="@Url.Action("EmpForm","Employee")" class="btn btn-primary">Add Employee</a>
+            </div>
+        </div>
+        <div class="col" style="float:right;">
+            <div class=" col-md-1">
+                <a href="@Url.Action("Work","Employee")" class="btn btn-primary">Add Working Logs</a>
+            </div>
+        </div>
+    </div>*@
+
+
+<div class="row">
+    <div class="col">
+        <input asp-for="Search" class="form-control" placeholder="Search" />
+
+    </div>
+    <div class="col">
+        <input asp-for="Sdate" class="form-control" placeholder="SDate" max="@DateTime.Now.Date.ToString("yyyy-MM-dd")" type="date" />
+
+    </div>
+    <div class="col">
+        <input asp-for="Edate" class="form-control" placeholder="EDate" type="date" />
+    </div>
+    <div class="col-1">
+        <input type="submit" value="Search" id="Submit" class="btn btn-primary search-btn" />
+    </div>
+    <div class="col-1">
+        <input type="button" value="Clear" class="btn btn-danger clear-btn" />
+    </div>
+</div>
+
+
+
+
+@*<div class="col">
+        <div class=" col-md-1">
+            <input type="button" value="Clear" class="btn btn-danger clear-btn" />
+        </div>
+    </div>*@
+
+<br />
+<div class="result">
+    <br />
+
+
+
+</div>
+
+<script src="~/js/Employee.js"></script>
+
